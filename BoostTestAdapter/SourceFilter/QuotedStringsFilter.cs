@@ -72,7 +72,7 @@ namespace BoostTestAdapter.SourceFilter
             /*
              * It is important not to the change order of the filters.
              */
-            cppSourceFile.SourceCode = stringLiteralsRegex.Replace(cppSourceFile.SourceCode, new MatchEvaluator(ComputeReplacement));
+            //cppSourceFile.SourceCode = stringLiteralsRegex.Replace(cppSourceFile.SourceCode, new MatchEvaluator(ComputeReplacement));
 
             cppSourceFile.SourceCode = quotedStringsRegex.Replace(cppSourceFile.SourceCode, "");
         }

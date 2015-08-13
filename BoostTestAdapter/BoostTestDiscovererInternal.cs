@@ -75,12 +75,14 @@ namespace BoostTestAdapter
         /// <param name="discoverySink">UTF component for collecting testcases</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public void GetBoostTests(IDictionary<string, ProjectInfo> solutionInfo, ITestCaseDiscoverySink discoverySink)
-        {
-            if (solutionInfo != null)
+		{
+			Logger.Info("Will look for tests in projects: {0}", solutionInfo.Keys);
+			if (solutionInfo != null)
             {
                 foreach (KeyValuePair<string, ProjectInfo> info in solutionInfo)
                 {
-                    string source = info.Key;
+					var watch = System.Diagnostics.Stopwatch.StartNew();
+					string source = info.Key;
                     ProjectInfo projectInfo = info.Value;
 
                     foreach(var sourceFile in projectInfo.CppSourceFiles)
@@ -91,6 +93,7 @@ namespace BoostTestAdapter
                             {
                                 try
                                 {
+									Logger.Info("Parsing file {0} from project {1}", sourceFile, projectInfo.ProjectExe);
                                     var cppSourceFile = new CppSourceFile()
                                     {
                                         FileName = sourceFile,
@@ -120,6 +123,8 @@ namespace BoostTestAdapter
                             Logger.Error("Unable to open file \"{0}\" of project \"{1}\".", sourceFile, projectInfo.ProjectExe);
                         }
                     }
+
+					Logger.Info("Looking for tests in project {0} took {1} seconds", projectInfo.ProjectExe, watch.ElapsedMilliseconds / 1000);
                 }
             }
             else

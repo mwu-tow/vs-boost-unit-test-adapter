@@ -52,7 +52,7 @@
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.ObjectModel">
-      <HintPath>$(ProgramFiles32)\Microsoft Visual Studio 11.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.VCProjectEngine, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -114,10 +114,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Log4NetConfigFile\BoostTestAdapter.dll.config" />
-    <EmbeddedResource Include="Resources\ReportsLogs\MemoryLeakTest\sample.NoSourceFileAndLineNumbersAvailable.test.stdout.log" />
-    <EmbeddedResource Include="Resources\ReportsLogs\MemoryLeakTest\sample.SourceFileAndLineNumbersAvailable.test.stdout.log" />
-    <EmbeddedResource Include="Resources\ReportsLogs\OutputTest\sample.test.stderr.log" />
-    <EmbeddedResource Include="Resources\ReportsLogs\OutputTest\sample.test.stdout.log" />
     <EmbeddedResource Include="Resources\Settings\conditionalIncludesDisabled.runsettings" />
     <EmbeddedResource Include="Resources\Settings\default.runsettings" />
     <EmbeddedResource Include="Resources\Settings\empty.runsettings" />
@@ -167,6 +163,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\ReportsLogs\SpecialCharacters\sample.test.log.xml" />
     <EmbeddedResource Include="Resources\ReportsLogs\SpecialCharacters\sample.test.report.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

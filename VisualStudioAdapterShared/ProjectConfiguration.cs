@@ -33,7 +33,24 @@ namespace VisualStudioAdapter.Shared
         {
             get
             {
-                if (this._cppCompiler == null)
+				var a = this._configuration.DebugSettings.GetType();
+				var b = this._configuration.DebugSettings.ToString();
+
+				var debugSettings = this._configuration.DebugSettings as VCDebugSettings;
+				if(debugSettings != null)
+				{
+					var ttt = debugSettings.WorkingDirectory;
+					var ttt2 = _configuration.Evaluate(ttt);
+					var rrr = debugSettings.Environment;
+					var rrr2 = _configuration.Evaluate(rrr);
+					var sss = debugSettings.EnvironmentMerge;
+					var uuu = debugSettings.CommandArguments;
+					var uuus = debugSettings.Command;
+					Console.WriteLine(ttt + rrr + sss + uuus);
+				}
+
+
+				if (this._cppCompiler == null)
                 {
                     IVCCollection tools = this._configuration.Tools as IVCCollection;
                     if (tools != null)
