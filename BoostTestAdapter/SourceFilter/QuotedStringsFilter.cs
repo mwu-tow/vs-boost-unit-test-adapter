@@ -69,10 +69,13 @@ namespace BoostTestAdapter.SourceFilter
         {
             Utility.Code.Require(cppSourceFile, "cppSourceFile");
 
-            /*
+			/*
              * It is important not to the change order of the filters.
              */
-            cppSourceFile.SourceCode = stringLiteralsRegex.Replace(cppSourceFile.SourceCode, new MatchEvaluator(ComputeReplacement));
+
+
+			// #FIXME [mwu] The line below is temporarily commented out to work around the issue: https://github.com/etas/vs-boost-unit-test-adapter/issues/8
+			// cppSourceFile.SourceCode = stringLiteralsRegex.Replace(cppSourceFile.SourceCode, new MatchEvaluator(ComputeReplacement));
 
             cppSourceFile.SourceCode = quotedStringsRegex.Replace(cppSourceFile.SourceCode, "");
         }
